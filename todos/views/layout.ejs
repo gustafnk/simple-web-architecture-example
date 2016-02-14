@@ -6,7 +6,13 @@
   </head>
   <body>
     <h1><%= title %></h1>
-     <%- body %>
-    </ul>
+      <div id="body-container">
+        <%- body %>
+      </div>
+      <div id="popup-container"></div>
+    <script src="javascripts/vendor/jquery-2.2.0.min.js"></script>
+    <script src="javascripts/vendor/jquery-pjax-1.9.6.js"></script>
+    <script src="javascripts/vendor/webcomponents-lite-0.7.2.min.js"></script>
+    <script src="javascripts/main.js"></script>
   </body>
 </html>

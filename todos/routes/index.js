@@ -9,13 +9,13 @@ var todos = [
   {id: 3, name: "Third" }
 ];
 
-router.get('/', function(req, res) {
-  res.render('index', { title: "Todos", todos: todos});
+router.get('/', function (req, res) {
+  res.renderPjax('index', { title: "Todos", todos: todos});
 });
 
 router.get('/new', function(req, res) {
   var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
-  res.render('new', { title: "New Todo", defaultName: names.choose() });
+  res.renderPjax('new', { title: "New Todo", defaultName: names.choose() });
 });
 
 router.post('/new', function(req, res) {
@@ -27,7 +27,7 @@ router.post('/new', function(req, res) {
     name: name
   });
 
-  res.redirect('/');
+  req.xhr ? res.send('/') : res.redirect('/');
 });
 
 module.exports = router;
