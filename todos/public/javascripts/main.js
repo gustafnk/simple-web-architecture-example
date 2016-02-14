@@ -1,3 +1,9 @@
+// Mustache style templates
+_.templateSettings = {
+  evaluate : /\{\[([\s\S]+?)\]\}/g,
+  interpolate : /\{\{([\s\S]+?)\}\}/g
+};
+
 $(function(){
   $(document).pjax('a.popup', '#popup-container');
 
