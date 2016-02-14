@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
+var Moniker = require('moniker')
 
 var todos = [
   {id: 1, name: "First" },
@@ -13,7 +14,8 @@ router.get('/', function(req, res) {
 });
 
 router.get('/new', function(req, res) {
-  res.render('new', { title: "New Todo", todos: todos});
+  var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
+  res.render('new', { title: "New Todo", defaultName: names.choose() });
 });
 
 router.post('/new', function(req, res) {
