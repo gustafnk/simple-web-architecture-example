@@ -3,10 +3,12 @@ var router = express.Router();
 var _ = require('underscore');
 var Moniker = require('moniker')
 
+var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
+
 var todos = [
-  {id: 1, name: "First" },
-  {id: 2, name: "Second" },
-  {id: 3, name: "Third" }
+  {id: 1, name: names.choose() },
+  {id: 2, name: names.choose() },
+  {id: 3, name: names.choose() }
 ];
 
 router.get('/', function (req, res) {
@@ -14,7 +16,6 @@ router.get('/', function (req, res) {
 });
 
 router.get('/new', function(req, res) {
-  var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
   res.renderPjax('new', { title: "New Todo", defaultName: names.choose() });
 });
 
