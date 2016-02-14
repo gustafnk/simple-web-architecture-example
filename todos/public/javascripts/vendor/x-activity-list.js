@@ -9,6 +9,13 @@ ActivityList.attachedCallback = function() {
     var data = JSON.parse(e.data);
     var toPrepend = _.template($('#event-template').html())(data);
     $(that).prepend(toPrepend);
+
+    // Remove an element if too long
+    var children = $(that).children();
+    if(children.length > 5) {
+      children.last().remove();
+    }
+
   }, false);
 };
 

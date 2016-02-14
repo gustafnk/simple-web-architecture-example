@@ -9,12 +9,11 @@ function createHtmlImport(url, onload) {
 var XImportPrototype = Object.create(HTMLElement.prototype);
 
 XImportPrototype.attachedCallback = function() {
-  console.log("attachedCallback in x-import");
   var container = this;
   var href = this.getAttribute('href');
 
   function onload() {
-    var fragment = this.import.querySelector("*");
+    var fragment = this.import.querySelector("body > *");
     container.innerHTML = '';
 
     container.appendChild(fragment.cloneNode(true));

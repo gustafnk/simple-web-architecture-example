@@ -1,6 +1,14 @@
 <a href="/new" class="popup">New</a>
-<ul>
+
+<ul class="todo-list">
 <% todos.forEach(function(todo){ %>
-  <li><%= todo.name %></li>
+  <li class="">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= todo.name %></h3>
+    </div>
+    <div class="panel-body">TBD</div>
+  </div>
+  </li>
 <% }) %>
 </ul>
