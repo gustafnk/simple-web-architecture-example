@@ -18,9 +18,6 @@ XImportPrototype.attachedCallback = function() {
     container.innerHTML = '';
 
     container.appendChild(fragment.cloneNode(true));
-
-    // Quick fix
-    $('link[rel=import]').remove();
   }
 
   createHtmlImport(href, onload);
