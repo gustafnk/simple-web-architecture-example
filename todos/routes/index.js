@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('underscore');
 
 var todos = [
   {id: 1, name: "First" },
@@ -7,9 +8,24 @@ var todos = [
   {id: 3, name: "Third" }
 ];
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index', { title: "Todos", todos: todos});
+});
+
+router.get('/new', function(req, res) {
+  res.render('new', { title: "New Todo", todos: todos});
+});
+
+router.post('/new', function(req, res) {
+  var newId = _.chain(todos).pluck('id').max().value();
+  var name = req.body.name
+
+  todos.push({
+    id: newId,
+    name: name
+  });
+
+  res.redirect('/');
 });
 
 module.exports = router;
