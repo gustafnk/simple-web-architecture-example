@@ -7,8 +7,7 @@ ActivityList.attachedCallback = function() {
 
   source.addEventListener('message', function(e) {
     var data = JSON.parse(e.data);
-    var toPrepend = _.template($('#event-template').html())(data);
-    $(that).prepend(toPrepend);
+    $(that).prepend(data.eventHTML);
 
     // Remove an element if too long
     var children = $(that).children();

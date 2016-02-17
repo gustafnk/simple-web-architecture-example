@@ -38,7 +38,10 @@ router.get('/event-stream', function(req, res){
       name: names.choose()
     };
 
-    res.write('data: {"event": '+ JSON.stringify(message) +'}\n\n');
+    // TODO Use template
+    var html = '<li>' + message.name + '</li>';
+
+    res.write('data: {"eventHTML": "' + html + '"}\n\n');
   }, 1000);
 });
 
