@@ -1,3 +1,7 @@
+<% if (!pjax) { %>
+<%- include('_top.ejs') %>
+<% } %>
+
 <a href="/new" class="popup">New</a>
 
 <ul class="todo-list">
@@ -12,3 +16,7 @@
   </li>
 <% }) %>
 </ul>
+
+<% if (!pjax) { %>
+<%- include('_bottom.ejs') %>
+<% } %>

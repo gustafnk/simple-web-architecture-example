@@ -12,7 +12,7 @@ var todos = [
 ];
 
 router.get('/', function (req, res) {
-  res.renderPjax('index', { title: "Todos", todos: todos});
+  res.renderPjax('index', { title: "Todos", todos: todos, pjax: req.pjax});
 });
 
 router.get('/new', function(req, res) {
