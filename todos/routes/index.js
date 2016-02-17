@@ -28,7 +28,7 @@ router.post('/new', function(req, res) {
     name: name
   });
 
-  req.xhr ? res.send('/') : res.redirect('/');
+  req.xhr ? res.send({url: '/'}) : res.redirect('/');
 });
 
 module.exports = router;

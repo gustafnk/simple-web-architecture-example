@@ -1,5 +1,5 @@
 var express = require('express');
-var partials = require('express-partials')
+var partials = require('express-partials');
 var pjax = require('express-pjax');
 var path = require('path');
 var favicon = require('serve-favicon');

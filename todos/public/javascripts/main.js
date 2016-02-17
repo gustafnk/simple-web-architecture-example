@@ -19,7 +19,7 @@ $(function(){
       headers: {'X-Requested-With': 'XMLHttpRequest'},
       success: function(redirectUrl) {
         $('#popup-container').empty();
-        $.pjax({url: redirectUrl, container: '#body-container'});
+        $.pjax({url: redirectUrl.url, container: '#body-container'});
       }
     });
   });

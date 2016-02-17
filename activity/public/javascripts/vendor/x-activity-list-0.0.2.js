@@ -7,7 +7,7 @@ ActivityList.attachedCallback = function() {
 
   source.addEventListener('message', function(e) {
     var data = JSON.parse(e.data);
-    var toPrepend = _.template($('#event-template').html())(data);
+    var toPrepend = _.template($('#event-template').html())(data) + " foo";
     $(that).prepend(toPrepend);
   }, false);
 };
