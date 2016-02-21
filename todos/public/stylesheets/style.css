@@ -8,6 +8,13 @@ body {
   list-style-type: none;
 }
 
+.activity-list {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 300px;
+}
+
 .new-item input {
   margin-top: 30px;
   width: 200px;
