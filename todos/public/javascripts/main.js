@@ -5,7 +5,7 @@ _.templateSettings = {
 };
 
 $(function(){
-  $(document).pjax('a.popup', '#popup-container', {push: false});
+  $(document).pjax('a.popup', '#popup-container');
 
   $(document).on('submit', 'form[data-pjax]', function(event) {
     event.preventDefault();

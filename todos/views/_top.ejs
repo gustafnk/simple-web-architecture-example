@@ -7,16 +7,16 @@
   </head>
   <body>
     <html-include src="http://localhost:5000">Link to navigation</html-include>
+    <div id="popup-container"></div>
     <div class="container">
-      <div id="popup-container"></div>
-        <div class="panel panel-default pull-right">
-          <div class="panel-heading">
-            <h3 class="panel-title">Activity</h3>
-          </div>
-          <div class="panel-body">
-            <html-include src="http://localhost:4000/widget">Link to activities</html-include>
-          </div>
+      <div class="panel panel-default pull-right">
+        <div class="panel-heading">
+          <h3 class="panel-title">Activity</h3>
         </div>
-        <h1><%= title %></h1>
-        <% console.log("fooo") %>
-        <div id="body-container">
+        <div class="panel-body">
+          <html-include src="http://localhost:4000/widget">Link to activities</html-include>
+        </div>
+      </div>
+      <h1><%= title %></h1>
+      <% console.log("fooo") %>
+      <div id="body-container">
