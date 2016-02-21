@@ -11,12 +11,20 @@ var todos = [
   {id: 3, name: names.choose() }
 ];
 
+router.get('/new', function(req, res) {
+  res.renderPjax('new', { title: "New Todo", defaultName: names.choose(), count: todos.length, layout: !(req.pjax || req.xhr) });
+});
+
 router.get('/', function (req, res) {
   res.renderPjax('index', { title: "Todos", todos: todos, count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
-router.get('/new', function(req, res) {
-  res.renderPjax('new', { title: "New Todo", defaultName: names.choose(), count: todos.length, layout: !(req.pjax || req.xhr) });
+router.get('/:id', function (req, res) {
+  console.log(req.params.name)
+  var found = _.find(todos,function(todo){
+    return todo.id == req.params.id;
+  });
+  res.renderPjax('details', { title: "Todo: " + found.name, todo: found, count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
 router.post('/new', function(req, res) {

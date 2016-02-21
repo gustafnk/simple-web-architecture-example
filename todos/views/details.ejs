@@ -1,0 +1,30 @@
+<% if (layout) { %>
+<%- include('_top.ejs') %>
+<% } %>
+
+<div class="row">
+  <div class="col-md-5">
+    <a href="/" class="popup">Back to list</a>
+  </div>
+</div>
+<br>
+
+<div class="row">
+<div class="col-md-8">
+<ul class="todo-list">
+<li class="">
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= todo.name %></h3>
+  </div>
+  <div class="panel-body">TBD</div>
+</div>
+</li>
+
+</ul>
+</div>
+</div>
+
+<% if (layout) { %>
+<%- include('_bottom.ejs') %>
+<% } %>
