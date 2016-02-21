@@ -6,7 +6,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <html-include src="http://localhost:5000" cache-bust>Link to navigation</html-include>
+    <html-include src="http://localhost:5000/?item=<%= locals.menuItem ? locals.menuItem : 'todos' %>" cache-bust>Link to navigation</html-include>
     <div class="container">
       <div id="popup-container"></div>
       <div class="activity-list panel panel-default">

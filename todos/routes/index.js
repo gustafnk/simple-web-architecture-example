@@ -37,15 +37,15 @@ router.get('/widgets/counter', function(req, res){
 
 // Tabs example
 router.get('/tabs-test', function(req, res) {
-  res.renderPjax('tabs-test', { title: "Tabs widgets test", count: todos.length, layout: !(req.pjax || req.xhr) });
+  res.renderPjax('tabs-test', { title: "Tabs widgets test", menuItem: 'tabs', count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
 router.get('/tabs/tabs-1', function(req, res) {
-  res.renderPjax('tabs/tabs-1', { title: "Tabs example", count: todos.length, layout: !(req.pjax || req.xhr) });
+  res.renderPjax('tabs/tabs-1', { title: "Tabs example", menuItem: 'tabs', count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
 router.get('/tabs/tabs-3', function(req, res) {
-  res.renderPjax('tabs/tabs-3', { title: "Tabs example", count: todos.length, layout: !(req.pjax || req.xhr) });
+  res.renderPjax('tabs/tabs-3', { title: "Tabs example", menuItem: 'tabs', count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
 module.exports = router;
