@@ -2,11 +2,14 @@
 <%- include('_top.ejs') %>
 <% } %>
 
-<form action="new" method="post" data-pjax>
-  <input name="name" value="<%= defaultName %>" />
-  <br><br>
-  <button type="submit">Create todo</button>
-</form>
+<div class="jumbotron">
+  <h2>New item</h2>
+  <form action="new" method="post" data-pjax class="new-item">
+    <input name="name" value="<%= defaultName %>" class="form-control" />
+    <br>
+    <button type="submit" class="btn btn-default btn-lg">Create todo</button>
+  </form>
+</div>
 
 <% if (!pjax) { %>
 <br><br>
@@ -14,4 +17,4 @@
 <a href="/">Back to board</a>
 
 <%- include('_bottom.ejs') %>
-<% } %>
+<% } %> 
