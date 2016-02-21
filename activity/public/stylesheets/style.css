@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 70px;
 }
 
-a {
-  color: #00B7FF;
+.todo-list {
+  max-width: 400px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.activity-list {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 300px;
+}
+
+.new-item {
+  width: 800px;
+}
+
+.new-item input {
+  margin-top: 30px;
+  width: 200px;
+}
+
+.counter {
+  color: white;
 }

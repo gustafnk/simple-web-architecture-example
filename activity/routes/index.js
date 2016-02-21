@@ -16,11 +16,11 @@ function renderActivity(req, res, options) {
 }
 
 router.get('/', function(req, res){
-  renderActivity(req, res, { layout: true }); 
+  renderActivity(req, res, { title: 'Activities', layout: true }); 
 });
 
 router.get('/widget', function(req, res){
-  renderActivity(req, res, { layout: false }); 
+  renderActivity(req, res, { title: 'Activities', layout: false }); 
 });
 
 router.get('/event-stream', function(req, res){
@@ -42,7 +42,7 @@ router.get('/event-stream', function(req, res){
     var html = '<li>' + message.name + '</li>';
 
     res.write('data: {"eventHTML": "' + html + '"}\n\n');
-  }, 1000);
+  }, 3000);
 });
 
 module.exports = router;

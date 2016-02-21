@@ -2,19 +2,25 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap-3.3.6.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <html-include src="http://localhost:5000" cache-bust>Link to navigation</html-include>
+    <div class="container">
+      <div id="popup-container"></div>
+      <!--<h1><%= title %></h1>-->
       <div id="body-container">
         <%- body %>
-      </div>
-      <div id="popup-container"></div>
-    <script src="javascripts/vendor/jquery-2.2.0.min.js"></script>
-    <script src="javascripts/vendor/jquery-pjax-1.9.6.js"></script>
-    <script src="javascripts/vendor/underscore-1.8.3-min.js"></script>
-    <script src="javascripts/vendor/webcomponents-lite-0.7.2.min.js"></script>
-    <script src="javascripts/vendor/x-activity-list-0.0.2.js"></script>
-    <script src="javascripts/main.js"></script>
+      </div><!-- End #body-container -->
+    </div><!-- End .container -->
+
+    <script src="/javascripts/vendor/jquery-2.2.0.min.js"></script>
+    <script src="/javascripts/vendor/jquery-pjax-1.9.6.js"></script>
+    <script src="/javascripts/vendor/underscore-1.8.3-min.js"></script>
+    <script src="/javascripts/vendor/webcomponents-lite-0.7.2.min.js"></script>
+    <script src="/javascripts/vendor/html-include.js"></script>
+    <script src="/javascripts/vendor/x-activity-list-0.0.3.js"></script>
+    <script src="/javascripts/vendor/bootstrap-3.3.6.min.js"></script>
   </body>
 </html>
