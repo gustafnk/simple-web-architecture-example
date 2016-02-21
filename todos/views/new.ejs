@@ -1,5 +1,17 @@
+<% if (!pjax) { %>
+<%- include('_top.ejs') %>
+<% } %>
+
 <form action="new" method="post" data-pjax>
   <input name="name" value="<%= defaultName %>" />
   <br><br>
   <button type="submit">Create todo</button>
 </form>
+
+<% if (!pjax) { %>
+<br><br>
+<hr>
+<a href="/">Back to board</a>
+
+<%- include('_bottom.ejs') %>
+<% } %>

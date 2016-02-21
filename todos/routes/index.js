@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/new', function(req, res) {
-  res.renderPjax('new', { title: "New Todo", defaultName: names.choose() });
+  res.renderPjax('new', { title: "New Todo", defaultName: names.choose(), pjax: req.pjax });
 });
 
 router.post('/new', function(req, res) {
