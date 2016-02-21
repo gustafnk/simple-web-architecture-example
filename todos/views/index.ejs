@@ -1,10 +1,15 @@
-<% if (!pjax) { %>
+<% if (layout) { %>
 <%- include('_top.ejs') %>
 <% } %>
 
-<a href="/new" class="popup"><button class="btn btn-default btn-lg">New</button></a>
-<br><br>
-
+<div class="row">
+  <div class="col-md-5">
+    <a href="/new" class="popup"><button class="btn btn-default btn-lg">New</button></a>
+  </div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-8">
 <ul class="todo-list">
 <% todos.forEach(function(todo){ %>
   <li class="">
@@ -17,7 +22,9 @@
   </li>
 <% }) %>
 </ul>
+</div>
+</div>
 
-<% if (!pjax) { %>
+<% if (layout) { %>
 <%- include('_bottom.ejs') %>
 <% } %>

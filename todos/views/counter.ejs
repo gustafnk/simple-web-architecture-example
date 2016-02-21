@@ -1,0 +1,11 @@
+<% if (layout) { %>
+<%- include('_top.ejs') %>
+<% } %>
+
+<div class="row">
+  You have <%= count %> items left to do.
+</div>
+
+<% if (layout) { %>
+<%- include('_bottom.ejs') %>
+<% } %>

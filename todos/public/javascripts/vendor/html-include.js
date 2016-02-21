@@ -10,11 +10,13 @@
   function xhr(that, uri) {
     var r = new XMLHttpRequest();
 
-    if (that.preventCache || that.getAttribute('prevent-cache') !== null) {
+    if (that.preventCache || that.getAttribute('cache-bust') !== null) {
       uri += (/\?/.test(uri) ? '&' : '?') + (new Date().getTime());
     }
 
     r.open("GET", uri, true);
+    r.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
     r.onreadystatechange = function () {
       var response;
       if (r.readyState !== 4) {

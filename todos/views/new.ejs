@@ -1,4 +1,4 @@
-<% if (!pjax) { %>
+<% if (layout) { %>
 <%- include('_top.ejs') %>
 <% } %>
 
@@ -11,7 +11,7 @@
   </form>
 </div>
 
-<% if (!pjax) { %>
+<% if (layout) { %>
 <br><br>
 <hr>
 <a href="/">Back to board</a>
