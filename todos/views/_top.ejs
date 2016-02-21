@@ -20,7 +20,7 @@
     </script>
   </head>
   <body>
-    <html-include src="http://localhost:5000/?item=<%= locals.menuItem ? locals.menuItem : 'todos' %>" cache-bust><span class="initial">Link to navigation</span></html-include>
+    <html-include src="http://localhost:5000/?item=<%= locals.menuItem ? locals.menuItem : 'todos' %>" cache-bust><span class="initial"><a href="http://localhost:5000/">Link to navigation</a></span></html-include>
     <div class="container">
       <div id="popup-container"></div>
       <div class="activity-list panel panel-default">
@@ -28,7 +28,7 @@
           <h3 class="panel-title">Activity</h3>
         </div>
         <div class="panel-body">
-          <html-include src="http://localhost:4000/widget"><span class="spinner">Link to activities</span></html-include>
+          <html-include src="http://localhost:4000/widget"><span class="spinner"><a href="http://localhost:4000">Link to activities</a></span></html-include>
         </div>
       </div>
       <!--<h1><%= title %></h1>-->
