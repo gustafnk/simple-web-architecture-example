@@ -1,5 +1,12 @@
-      </div>
-    </div>
+      </div><!-- End #body-container -->
+        <div class="row">
+          <div class="col-md-5">
+            <html-include src="http://localhost:3000/widgets/counter" only-update update-on="new-todo, remove-todo" cache-bust>
+            You have <%= count %> items left to do.
+            </html-include>
+          </div>
+        </div>
+    </div><!-- End .container -->
 
     <script src="/javascripts/vendor/jquery-2.2.0.min.js"></script>
     <script src="/javascripts/vendor/jquery-pjax-1.9.6.js"></script>

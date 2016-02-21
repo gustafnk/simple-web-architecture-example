@@ -17,9 +17,18 @@ $(function(){
       type: 'POST',
       data: $form.serialize(),
       headers: {'X-Requested-With': 'XMLHttpRequest'},
-      success: function(redirectUrl) {
+      success: function(response) {
         $('#popup-container').empty();
-        $.pjax({url: redirectUrl.url, container: '#body-container'});
+
+        var subscribers = $('[update-on]');
+
+        _.each(subscribers, function(subscriber){
+          _.each(response.events, function(e){
+            subscriber.onMessage && subscriber.onMessage(e);
+          });
+        });
+
+        $.pjax({url: response.url, container: '#body-container'});
       }
     });
   });

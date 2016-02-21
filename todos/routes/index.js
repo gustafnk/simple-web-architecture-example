@@ -12,11 +12,11 @@ var todos = [
 ];
 
 router.get('/', function (req, res) {
-  res.renderPjax('index', { title: "Todos", todos: todos, layout: !(req.pjax || req.xhr) });
+  res.renderPjax('index', { title: "Todos", todos: todos, count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
 router.get('/new', function(req, res) {
-  res.renderPjax('new', { title: "New Todo", defaultName: names.choose(), layout: !(req.pjax || req.xhr) });
+  res.renderPjax('new', { title: "New Todo", defaultName: names.choose(), count: todos.length, layout: !(req.pjax || req.xhr) });
 });
 
 router.post('/new', function(req, res) {
@@ -28,7 +28,7 @@ router.post('/new', function(req, res) {
     name: name
   });
 
-  req.xhr ? res.send({url: '/'}) : res.redirect('/');
+  req.xhr ? res.send({url: '/', events: ['new-todo']}) : res.redirect('/');
 });
 
 router.get('/widgets/counter', function(req, res){

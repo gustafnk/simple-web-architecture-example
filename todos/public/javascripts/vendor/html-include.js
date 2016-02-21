@@ -8,6 +8,12 @@
   var proto;
 
   function xhr(that, uri) {
+
+    if (that.getAttribute('only-update') !== null && !that.skipFirst) {
+      that.skipFirst = true;
+      return;
+    }
+
     var r = new XMLHttpRequest();
 
     if (that.preventCache || that.getAttribute('cache-bust') !== null) {
@@ -48,7 +54,7 @@
   proto.attachedCallback = function () {
     // If it already has content, just replace it.
     if (this.content) {
-      this.outerHTML = this.content;
+      this.innerHTML = this.content;
     }
   };
 
@@ -60,6 +66,7 @@
       xhr(this, src);
       return;
     }
+
     Object.defineProperty(this, 'src', {
       set : function (val) {
         xhr(that, val);
@@ -69,6 +76,24 @@
       }
     });
   };
+
+  proto.onMessage = function(message){
+    var that = this;
+    var attribute = this.getAttribute('update-on');
+
+    if (attribute) {
+      var tokens = attribute.split(',');
+
+      tokens.forEach(function(token){
+        var topic = token.trim();
+
+        if (topic === token) {
+          that.createdCallback()
+        }
+      });
+    }
+  }
+
   document.registerElement('html-include', {
     prototype : proto
   });
