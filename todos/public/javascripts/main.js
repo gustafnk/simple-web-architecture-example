@@ -5,7 +5,13 @@ _.templateSettings = {
 };
 
 $(function(){
-  $(document).pjax('a.popup', '#popup-container');
+  $(document).pjax('a.popup', '#popup-container', {
+    push: false // Don't add modals to the browser history
+  });
+
+  $(document).pjax('a:not(.popup)', '#body-container', {
+    maxCacheLength: 0
+  });
 
   $(document).on('submit', 'form[data-pjax]', function(event) {
     event.preventDefault();
@@ -28,7 +34,11 @@ $(function(){
           });
         });
 
-        $.pjax({url: response.url, container: '#body-container'});
+        $.pjax({
+          url: response.url,
+          container: '#body-container',
+          replace: true
+        });
       }
     });
   });
