@@ -40,22 +40,32 @@ $(function(){
 });
 
 var IncludeUpdater = {
-  publish: function(events){
+  publish: function(eventNames){
 
-    // TODO Remove jquery dependency
-    var subscribers = $('[update-on]');
+    function check(element, eventName){
+      if (element.localName === 'h-include') {
 
-    // TODO Remove underscore dependency
-    _.each(subscribers, function(subscriber){
-      _.each(events, function(e){
-        if (subscriber.onMessage) {
-          subscriber.onMessage(e);
+        var attribute = element.getAttribute('update-on');
+
+        if (attribute) {
+          var tokens = attribute.split(',');
+
+          return tokens.some(function(token){
+            var topic = token.trim();
+            return topic === eventName;
+          });
         }
+      }
+    }
 
-        if (subscriber.localName === 'h-include') {
-          subscriber.refresh();
+    var subscribers = document.querySelectorAll('[update-on]');
+
+    for(var i = 0; i < subscribers.length; ++i) {
+      eventNames.forEach(function(eventName){
+        if (check(subscribers[i], eventName)) {
+          subscribers[i].refresh();
         }
       });
-    });
+    };
   }
 }
