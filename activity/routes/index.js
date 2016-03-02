@@ -1,16 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
-var Moniker = require('moniker')
+var Moniker = require('moniker');
+var Chance = require('chance');
+var chance = new Chance();
 
 var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
+
+var severeties = ['default', 'primary', 'success', 'info', 'warning', 'danger'];
+var actions = ['created', 'edited', 'removed', 'assigned'];
 
 function renderActivity(req, res, options) {
 
   var events = [
-    {id: 1, name: names.choose() },
-    {id: 2, name: names.choose() },
-    {id: 3, name: names.choose() }
+    {id: 1, name: chance.first() + " " + _.sample(actions) + " " + names.choose(), severity: _.sample(severeties) },
+    {id: 2, name: chance.first() + " " + _.sample(actions) + " " + names.choose(), severity: _.sample(severeties) },
+    {id: 3, name: chance.first() + " " + _.sample(actions) + " " + names.choose(), severity: _.sample(severeties) }
   ];
   res.render('index', { title: "Activity", events: events, layout: options.layout });
 }
@@ -35,11 +40,13 @@ router.get('/event-stream', function(req, res){
   setInterval(function(){
     var message = {
       id: ++counter,
-      name: names.choose()
+      name: chance.first() + " " + _.sample(actions) + " " + names.choose(),
+      severity: _.sample(severeties)
     };
 
-    // TODO Use template
-    var html = '<li>' + message.name + '</li>';
+    // TODO Read file
+    var template = '<li><span class=\\"label label-<%= severity %>\\"><%= name %></span></li>';
+    var html = _.template(template)(message);
 
     res.write('data: {"eventHTML": "' + html + '"}\n\n');
   }, 3000);

@@ -14,10 +14,11 @@
       <ul class="nav navbar-nav">
         <li <%- item === 'todos' ? 'class="active"' : '' %>><a href="http://localhost:3000/">Todos</a></li>
         <li <%- item === 'activity' ? 'class="active"' : '' %>><a href="http://localhost:4000">Activities</a></li>
-        <li <%- item === 'tabs' ? 'class="active"' : '' %>><a href="http://localhost:3000/tabs-test">Tabs test</a></li>
+        <!--<li <%- item === 'tabs' ? 'class="active"' : '' %>><a href="http://localhost:3000/tabs-test">Tabs test</a></li>-->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="counter"><h-include src="http://localhost:3000/widgets/counter" update-on="new-todo, remove-todo"></h-include></li>
+        <li class="counter"><h-include src="http://localhost:3000/widgets/counter" refresh-on="new-todo, remove-todo"></h-include></li>
+        <li class="timestamp"><%= (new Date()).toISOString() %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
