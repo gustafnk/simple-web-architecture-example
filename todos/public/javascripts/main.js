@@ -52,11 +52,8 @@ var IncludeUpdater = {
           subscriber.onMessage(e);
         }
 
-        if (subscriber.localName === 'hx:include') {
-          var elementId = subscriber.getAttribute('id');
-          if (!elementId) console.log('Could not find id on hx:include, which is a required on refresh');
-
-          hinclude.refresh(elementId);
+        if (subscriber.localName === 'h-include') {
+          subscriber.refresh();
         }
       });
     });

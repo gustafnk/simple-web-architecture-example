@@ -4,10 +4,11 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/bootstrap-3.3.6.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/vendor/document-register-element.js"></script>
     <script src="/javascripts/vendor/hinclude.js" type="text/javascript"></script>
   </head>
   <body>
-    <hx:include src="http://localhost:5000/?item=activity"><a href="http://localhost:5000/">Link to navigation</a></hx:include>
+    <h-include src="http://localhost:5000/?item=activity"><a href="http://localhost:5000/">Link to navigation</a></h-include>
     <div class="container">
       <div id="popup-container"></div>
       <!--<h1><%= title %></h1>-->

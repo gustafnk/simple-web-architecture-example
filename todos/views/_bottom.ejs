@@ -1,9 +1,9 @@
       </div><!-- End #body-container -->
         <div class="row">
           <div class="col-md-5">
-            <hx:include src="http://localhost:3000/widgets/counter" only-update update-on="new-todo, remove-todo" id="counter-include">
+            <h-include src="http://localhost:3000/widgets/counter" only-update update-on="new-todo, remove-todo" id="counter-include">
             You have <%= count %> items left to do.
-            </hx:include>
+            </h-include>
           </div>
         </div>
     </div><!-- End .container -->
@@ -11,8 +11,6 @@
     <script src="/javascripts/vendor/jquery-2.2.0.min.js"></script>
     <script src="/javascripts/vendor/jquery-pjax-1.9.6.js"></script>
     <script src="/javascripts/vendor/underscore-1.8.3-min.js"></script>
-    <script src="/javascripts/vendor/document-register-element.js"></script>
-    <script src="/javascripts/vendor/html-include.js"></script>
     <script src="/javascripts/vendor/x-activity-list-0.0.3.js"></script>
     <script src="/javascripts/main.js"></script>
     <script src="/javascripts/vendor/bootstrap-3.3.6.min.js"></script>
