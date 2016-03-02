@@ -70,7 +70,6 @@ var hinclude;
     },
 
     outstanding: 0,
-    includes: [],
     
     include: function (element, url, media, incl_cb) {
       if (media && window.matchMedia && !window.matchMedia(media).matches) {
@@ -134,6 +133,10 @@ var hinclude;
   var proto = Object.create(window.HTMLElement.prototype);
 
   proto.createdCallback = function () {
+
+    if (this.getAttribute('skip-initial-include') !== null) {
+      return;
+    }
 
     var mode = hinclude.get_meta("include_mode", "buffered");
     var callback;
