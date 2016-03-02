@@ -40,7 +40,7 @@ router.post('/new', function(req, res) {
 });
 
 router.get('/widgets/counter', function(req, res){
-  res.renderPjax('counter', { title: "TODOs left", count: todos.length, layout: !(req.pjax || req.xhr) });
+  res.renderPjax('counter', { title: "TODOs left", count: todos.length, layout: false });
 });
 
 // Tabs example

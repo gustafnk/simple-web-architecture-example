@@ -9,6 +9,7 @@ $(function(){
     push: false // Don't add modals to the browser history
   });
 
+  // TODO Don't hit navigation links
   $(document).pjax('a:not(.popup)', '#body-container', {
     maxCacheLength: 0
   });
@@ -26,13 +27,7 @@ $(function(){
       success: function(response) {
         $('#popup-container').empty();
 
-        var subscribers = $('[update-on]');
-
-        _.each(subscribers, function(subscriber){
-          _.each(response.events, function(e){
-            subscriber.onMessage && subscriber.onMessage(e);
-          });
-        });
+        IncludeUpdater.publish(response.events);
 
         $.pjax({
           url: response.url,
@@ -43,3 +38,27 @@ $(function(){
     });
   });
 });
+
+var IncludeUpdater = {
+  publish: function(events){
+
+    // TODO Remove jquery dependency
+    var subscribers = $('[update-on]');
+
+    // TODO Remove underscore dependency
+    _.each(subscribers, function(subscriber){
+      _.each(events, function(e){
+        if (subscriber.onMessage) {
+          subscriber.onMessage(e);
+        }
+
+        if (subscriber.localName === 'hx:include') {
+          var elementId = subscriber.getAttribute('id');
+          if (!elementId) console.log('Could not find id on hx:include, which is a required on refresh');
+
+          hinclude.refresh(elementId);
+        }
+      });
+    });
+  }
+}

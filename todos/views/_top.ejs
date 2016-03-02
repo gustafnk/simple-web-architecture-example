@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:hx="http://purl.org/NET/hinclude">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/bootstrap-3.3.6.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="/javascripts/vendor/hinclude.js" type="text/javascript"></script>
+
     <script>
     function addCSSRule(sheet, selector, rules, index) {
       if("insertRule" in sheet) {
@@ -20,7 +23,7 @@
     </script>
   </head>
   <body>
-    <html-include src="http://localhost:5000/?item=<%= locals.menuItem ? locals.menuItem : 'todos' %>" cache-bust><span class="initial"><a href="http://localhost:5000/">Link to navigation</a></span></html-include>
+    <hx:include src="http://localhost:5000/?item=<%= locals.menuItem ? locals.menuItem : 'todos' %>"><span class="initial"><a href="http://localhost:5000/">Link to navigation</a></span></hx:include>
     <div class="container">
       <div id="popup-container"></div>
       <div class="activity-list panel panel-default">
@@ -28,7 +31,7 @@
           <h3 class="panel-title">Activity</h3>
         </div>
         <div class="panel-body">
-          <html-include src="http://localhost:4000/widget"><span class="spinner"><a href="http://localhost:4000">Link to activities</a></span></html-include>
+          <hx:include src="http://localhost:4000/widget"><span class="spinner"><a href="http://localhost:4000">Link to activities</a></span></hx:include>
         </div>
       </div>
       <!--<h1><%= title %></h1>-->
