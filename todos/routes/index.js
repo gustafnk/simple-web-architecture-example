@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
-var Moniker = require('moniker')
+var Moniker = require('moniker');
+var loremIpsum = require('lorem-ipsum');
 
 var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
 
 var todos = [
-  {id: 1, name: names.choose() },
-  {id: 2, name: names.choose() },
-  {id: 3, name: names.choose() }
+  {id: 1, name: names.choose(), shortDescription: loremIpsum({ sentenceLowerBound: 10 }), longDescription: loremIpsum({ sentenceLowerBound: 50 }) },
+  {id: 2, name: names.choose(), shortDescription: loremIpsum({ sentenceLowerBound: 10 }), longDescription: loremIpsum({ sentenceLowerBound: 50 }) },
+  {id: 3, name: names.choose(), shortDescription: loremIpsum({ sentenceLowerBound: 10 }), longDescription: loremIpsum({ sentenceLowerBound: 50 }) }
 ];
 
 router.get('/new', function(req, res) {
@@ -33,7 +34,9 @@ router.post('/new', function(req, res) {
 
   todos.push({
     id: newId,
-    name: name
+    name: name,
+    shortDescription: loremIpsum({ sentenceLowerBound: 10 }), 
+    longDescription: loremIpsum({ sentenceLowerBound: 50 })
   });
 
   req.xhr ? res.send({url: '/', events: ['new-todo']}) : res.redirect('/');

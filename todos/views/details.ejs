@@ -17,7 +17,17 @@
   <div class="panel-heading">
     <h3 class="panel-title"><%= todo.name %></h3>
   </div>
-  <div class="panel-body">TBD</div>
+  <div class="panel-body">
+    <div><%= todo.shortDescription %></div>
+    <br>
+    <div><%= todo.longDescription %></div>
+    <hr>
+    <div>
+      <button class="btn btn-primary">Do something</button>
+      <button class="btn btn-success">Do something else</button>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
 </div>
 </li>
 
