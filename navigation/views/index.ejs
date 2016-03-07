@@ -8,16 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://localhost:3000">Simple Inc.</a>
+      <a class="navbar-brand" href="<%= TODOS_HOST %>">Simple Inc.</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li <%- item === 'todos' ? 'class="active"' : '' %>><a href="http://localhost:3000/">Todos</a></li>
-        <li <%- item === 'activity' ? 'class="active"' : '' %>><a href="http://localhost:4000">Activities</a></li>
+        <li <%- item === 'todos' ? 'class="active"' : '' %>><a href="<%= TODOS_HOST %>">Todos</a></li>
+        <li <%- item === 'activity' ? 'class="active"' : '' %>><a href="<%= ACTIVITIES_HOST %>">Activities</a></li>
         <!--<li <%- item === 'tabs' ? 'class="active"' : '' %>><a href="http://localhost:3000/tabs-test">Tabs test</a></li>-->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="counter"><h-include src="http://localhost:3000/widgets/counter" refresh-on="new-todo, remove-todo"></h-include></li>
+        <li class="counter"><h-include src="<%= TODOS_HOST %>/widgets/counter" refresh-on="new-todo, remove-todo"></h-include></li>
         <li class="timestamp">Timestamp: <%= (new Date()).getTime() %></li>
       </ul>
     </div><!--/.nav-collapse -->

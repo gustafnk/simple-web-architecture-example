@@ -10,6 +10,10 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+require('dotenv').config();
+app.locals = process.env;
+
 app.use(cors());
 
 // view engine setup
