@@ -41,3 +41,4 @@ jspm_packages
 .env
 
 node-v*
+deploy.sh
