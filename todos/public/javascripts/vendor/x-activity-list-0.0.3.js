@@ -18,7 +18,6 @@ ActivityList.attachedCallback = function() {
   }, false);
 };
 
-document.registerElement('x-activity-list', {
-  prototype: ActivityList,
-  extends: 'ul'
+document.registerElement('activity-list', {
+  prototype: ActivityList
 });

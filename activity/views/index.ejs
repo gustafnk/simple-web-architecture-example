@@ -1,7 +1,7 @@
 <div>
-  <ul class="activities" is="x-activity-list" href="<%= ACTIVITIES_HOST %>/event-stream">
+  <activity-list class="activities" href="<%= ACTIVITIES_HOST %>/event-stream">
   <% events.forEach(function(event){ %>
     <li><span class="label label-<%= event.severity %>"><%= event.name %></span></li>
   <% }) %>
-  </ul>
+  </activity-list>
 </div>
