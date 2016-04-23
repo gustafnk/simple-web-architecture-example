@@ -2,9 +2,11 @@ var IncludesRefresher = {
   refresh: function(eventNames){
 
     function check(element, eventName){
-      if (element.localName === 'h-include') {
+      var parent = element.parentElement;
 
-        var attribute = element.getAttribute('refresh-on');
+      if (parent.localName === 'h-include') {
+
+        var attribute = element.getAttribute('data-refresh-on');
 
         if (attribute) {
           var tokens = attribute.split(',');
@@ -17,12 +19,12 @@ var IncludesRefresher = {
       }
     }
 
-    var subscribers = document.querySelectorAll('[refresh-on]');
+    var subscribers = document.querySelectorAll('[data-refresh-on]');
 
     for(var i = 0; i < subscribers.length; ++i) {
       eventNames.forEach(function(eventName){
         if (check(subscribers[i], eventName)) {
-          subscribers[i].refresh();
+          subscribers[i].parentElement.refresh();
         }
       });
     };

@@ -1,8 +1,10 @@
       </div><!-- End #body-container -->
         <div class="row">
           <div class="col-md-5">
-            <h-include src="<%= TODOS_HOST %>/widgets/counter" skip-initial-include refresh-on="new-todo, remove-todo" id="counter-include">
-            You have <%= count %> items left to do.
+            <h-include src="<%= TODOS_HOST %>/widgets/counter" skip-initial-include>
+              <div data-refresh-on="new-todo, remove-todo">
+                You have <%= count %> items left to do.
+              </div>
             </h-include>
           </div>
         </div>
